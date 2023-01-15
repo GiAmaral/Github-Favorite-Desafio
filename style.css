@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --font-family: 'Roboto', sans-serif;
+    --font-family-empty-results: 'Roboto Mono', monospace;
+    --color-black: #000;
+    --general-font-color: #E1E1E6;
+    --input-bg-color: #06181C;
+    --input-text-color: #7C7C8A;
+    --favorite-button-bg-color: #065E7C;
+    --favorite-button-text-color: #FFF;
+    --main-row-bg-color: #092D38;
+    --border-table-color: #4A808C;
+    --even-row-bg-color: #06181C;
+    --odd-row-bg-color: rgba(6, 22, 27, 0.5);
+    --remove-color: #F75A68;
+    --empty-results-color: #4E5455;
+}
+
+body {
+    background: var(--color-black);
+    font-family: var(--font-family);
+    color: var(--general-font-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 8.72rem;
+    width: 112rem;
+    margin: 0 auto;
+    padding: 11.5rem 0;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 64rem;
+    align-items: end;
+}
+
+.search {
+    display: grid;
+    grid-template-columns: 46.2rem 1fr;
+    height: 4.8rem;
+    gap: .8rem;
+}
+
+.search input {
+    background: var(--input-bg-color);
+    color: var(--input-text-color);
+    font-size: 1.6rem;
+    line-height: 100%;
+    border: .1rem solid var(--input-bg-color);
+    border-radius: .5rem;
+    padding: 1.6rem;
+}
+
+.favorite-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    background: var(--favorite-button-bg-color);
+    color: var(--favorite-button-text-color);
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    text-transform: uppercase;
+    border: .1rem solid var(--favorite-button-bg-color);
+    border-radius: .5rem;
+}
+
+.favorite-button:hover {
+    color: var(--favorite-button-bg-color);
+    background: var(--favorite-button-text-color);
+    cursor: pointer;
+}
+
+.favorite-button:hover path {
+    fill: var(--favorite-button-bg-color);
+}
+
+table {
+    width: 100%;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 160%;
+    border-spacing: 0;
+    border: .1rem solid var(--border-table-color);
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+
+table thead,
+table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table thead {
+    text-align: left;
+    height: 6.4rem;
+}
+
+table tbody {
+    display: block;
+    max-height: 28.9rem;
+    overflow-y: auto;
+}
+
+table tbody::-webkit-scrollbar {
+    width: .6rem;
+}
+
+table tbody::-webkit-scrollbar-track {
+    background: transparent;
+    display: block;
+    margin: .4rem;
+}
+
+table tbody::-webkit-scrollbar-thumb {
+    background: var(--border-table-color);
+    border-radius: 1rem;
+}
+
+table tbody tr {
+    height: 10.4rem;
+}
+
+table th {
+    background: var(--main-row-bg-color);
+}
+
+tr th,
+tr td {
+    padding: 1.6rem 4.0rem;
+}
+
+tr th:nth-child(1),
+tr td:nth-child(1) {
+    width: 50.4rem;
+}
+
+tr th:nth-child(2),
+tr td:nth-child(2) {
+    width: 21.9rem;
+}
+
+tr th:nth-child(3),
+tr td:nth-child(3) {
+    width: 21.9rem;
+}
+
+tr th:nth-child(4),
+tr td:nth-child(4) {
+    width: 17.8rem;
+}
+
+tr {
+    background: var(--even-row-bg-color);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--odd-row-bg-color);
+}
+
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+td.user a {
+    color: var(--general-font-color);
+    text-decoration: none;
+}
+
+td.user a span {
+    font-weight: 400;
+}
+
+td.user img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 5rem;
+}
+
+td button.remove {
+    all: unset;
+    color: var(--remove-color);
+}
+
+td button.remove:hover {
+    cursor: pointer;
+}
+
+.empty-results td div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    color: var(--empty-results-color);
+    font-family: var(--font-family-empty-results);
+    font-size: 4rem;
+    line-height: 2.5rem;
+    padding: 4rem;
+}
+
+.empty-results td div img {
+    width: 13.2rem;
+    height: 12.5rem;
+}
+
+.hidden {
+    display: none;
+}
